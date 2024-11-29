@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "487519308273",
+    "project_id": "barberapp-7f488",
+    "storage_bucket": "barberapp-7f488.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:487519308273:android:e36752610605eb0cb15c50",
+        "android_client_info": {
+          "package_name": "com.example.barber_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGRigUpNjpuI0wDe4wHJttzpXPr3A4jio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
