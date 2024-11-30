@@ -1,4 +1,6 @@
 // import 'package:barber_app/pages/login.dart';
+import 'package:barber_app/Admin/admin_login.dart';
+import 'package:barber_app/Admin/booking_admin.dart';
 import 'package:barber_app/pages/onboarding.dart';
 // import 'package:barber_app/pages/signup.dart';
 // import 'package:barber_app/pages/home.dart';
@@ -26,9 +28,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Nepth Barber Shop - Booking System',
       debugShowCheckedModeBanner: false,
-      home: Onboarding(),
+      home: BookingAdmin(),
     );
   }
 }

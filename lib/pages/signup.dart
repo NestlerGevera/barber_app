@@ -227,6 +227,7 @@ class _SignUpState extends State<SignUp> {
                             });
                           }
                           registration();
+
                           Navigator.push(
                             context,
                             MaterialPageRoute(

@@ -1,4 +1,6 @@
+import 'package:barber_app/services/database.dart';
 import 'package:flutter/material.dart';
+import 'package:barber_app/services/shared_pref.dart';
 
 class Booking extends StatefulWidget {
   String service;
@@ -9,6 +11,27 @@ class Booking extends StatefulWidget {
 }
 
 class _BookingState extends State<Booking> {
+  String? name, image, email;
+
+  getthedatafromsharedpref() async {
+    name = await SharedPreferenceHelper().getUserName();
+    image = await SharedPreferenceHelper().getUserImage();
+    email = await SharedPreferenceHelper().getUserEmail();
+
+    setState(() {});
+  }
+
+  getontheload() async {
+    await getthedatafromsharedpref();
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getontheload();
+    super.initState();
+  }
+
   DateTime _selectedDate = DateTime.now();
 
   Future<void> _selectDate(BuildContext context) async {
@@ -200,7 +223,30 @@ class _BookingState extends State<Booking> {
                 height: 40.0,
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () async {
+                  Map<String, dynamic> userBookingmap = {
+                    "Service": widget.service,
+                    "Date":
+                        "${_selectedDate.day}/${_selectedDate.month}/${_selectedDate.year}"
+                            .toString(),
+                    "Time": _selectedTime.format(context).toString(),
+                    "Username": name,
+                    "Image": image,
+                    "Email": email,
+                  };
+                  await DatabaseMethods()
+                      .addUserBooking(userBookingmap)
+                      .then((value) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text(
+                          'Service Booked Successfully',
+                          style: TextStyle(fontSize: 20.0),
+                        ),
+                      ),
+                    );
+                  });
+                },
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   padding:
