@@ -13,4 +13,15 @@ class DatabaseMethods {
         .collection("Booking")
         .add(userInfoMap);
   }
+
+  Future<Stream<QuerySnapshot>> getBookings() async {
+    return await FirebaseFirestore.instance.collection("Booking").snapshots();
+  }
+
+  Future DeleteBooking(String id) async {
+    return await FirebaseFirestore.instance
+        .collection("Booking")
+        .doc(id)
+        .delete();
+  }
 }

@@ -1,6 +1,7 @@
 import 'package:barber_app/services/shared_pref.dart';
 import 'package:flutter/material.dart';
 import 'package:barber_app/pages/booking.dart';
+import 'package:barber_app/pages/login.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -50,6 +51,55 @@ class _HomeState extends State<Home> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.logout),
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text("Logout Confirmation"),
+                                    content: Text(
+                                        "Are you sure you want to logout?"),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          // Close the dialog
+                                          Navigator.of(context).pop();
+                                        },
+                                        child: Text("No",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                            )),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          // Navigate to the logout route
+                                          Navigator.of(context)
+                                              .pop(); // Close the dialog
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => LogIn(),
+                                            ),
+                                          );
+                                        },
+                                        child: Text("Yes",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                            )),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                        ],
+                      ),
                       Text(
                         'Hello,',
                         style: TextStyle(

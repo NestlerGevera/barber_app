@@ -1,3 +1,4 @@
+import 'package:barber_app/Admin/admin_login.dart';
 import 'package:barber_app/pages/signup.dart';
 // import 'package:barber_app/pages/onboarding.dart';
 import 'package:barber_app/pages/home.dart';
@@ -157,7 +158,7 @@ class _LogInState extends State<LogIn> {
                       TextFormField(
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return 'Please Enter Name';
+                            return 'Please Enter Password';
                           }
                           return null;
                         },
@@ -229,37 +230,75 @@ class _LogInState extends State<LogIn> {
                       SizedBox(
                         height: 40.0,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      Column(
                         children: [
-                          Text(
-                            "Don't have an account?",
-                            style: TextStyle(
-                              color: Color(0xff2c2108),
-                              fontWeight: FontWeight.w500,
-                              fontSize: 18.0,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 10.0,
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SignUp(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Don't have an account?",
+                                style: TextStyle(
+                                  color: Color(0xff2c2108),
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18.0,
                                 ),
-                              );
-                            },
-                            child: Text(
-                              "SIGN UP",
-                              style: TextStyle(
-                                color: Color(0xffa2790d),
-                                fontWeight: FontWeight.w500,
-                                fontSize: 20.0,
                               ),
-                            ),
+                              SizedBox(
+                                width: 10.0,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => SignUp(),
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  "SIGN UP",
+                                  style: TextStyle(
+                                    color: Color(0xffa2790d),
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 20.0,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Sign in as Admin",
+                                style: TextStyle(
+                                  color: Color(0xff2c2108),
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18.0,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10.0,
+                              ),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => AdminLogin(),
+                                    ),
+                                  );
+                                },
+                                child: Text(
+                                  "ADMIN LOGIN",
+                                  style: TextStyle(
+                                    color: Color(0xffa2790d),
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 20.0,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),

@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Nepth Barber Shop - Booking System',
       debugShowCheckedModeBanner: false,
-      home: BookingAdmin(),
+      home: Onboarding(),
     );
   }
 }
